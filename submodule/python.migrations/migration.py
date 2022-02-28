@@ -13,13 +13,13 @@ def migrations():
     path='../../src/App.Data/Migrations/SQL/'
     list_sql=[]
     """ run migrations in the PostgreSQL database"""
-    fileMigrations = path + 'diklzList'
+    fileMigrations = f'{path}diklzList'
     ls=open(fileMigrations, 'r', encoding='utf-8-sig')
     s=ls.read()
     list_sql=s.split('\n')
     print(list_sql)
     logging.info('Run migration for next scripts \n' + s)
-  
+
     conn = None
     try:
         # read the connection parameters
@@ -33,7 +33,7 @@ def migrations():
             fd=open(sql, 'r', encoding='utf-8-sig')
             print(sql)
             cur.execute(fd.read())
-            logging.info('Script '+sql+' is success')
+            logging.info(f'Script {sql} is success')
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes

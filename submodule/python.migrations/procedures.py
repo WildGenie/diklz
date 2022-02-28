@@ -25,9 +25,9 @@ def procedures():
                 fd=open(file, 'r', encoding='utf-8-sig')
                 print(file)
                 cur.execute(fd.read())
-                logging.info('Script '+file+' is success')
+                logging.info(f'Script {file} is success')
                 cur.execute(fd.read())
-                logging.info('Script '+file+' is success')
+                logging.info(f'Script {file} is success')
         # close communication with the PostgreSQL database server
         cur.close()
         # commit the changes
